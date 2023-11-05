@@ -85,7 +85,6 @@ input[type="text"] {
 }
 
 input[type="checkbox"] {
-  -webkit-appearance: none;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
@@ -119,5 +118,9 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:checked::before {
   border-radius: 4px;
   transform: scale(1) translate(-50%, -50%);
+}
+
+.black_btn {
+  position: relative;
 }
 </style>
