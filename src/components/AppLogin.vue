@@ -120,9 +120,4 @@ input[type="checkbox"]:checked::before {
   border-radius: 4px;
   transform: scale(1) translate(-50%, -50%);
 }
-
-.black_btn {
-  position: absolute;
-  right: 0;
-}
 </style>
