@@ -48,7 +48,9 @@
       <!-- mobile_menu -->
       <div class="mobile_menu">
         <ul>
-          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li @click="search_o">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </li>
           <li><i class="fa-solid fa-bag-shopping"></i></li>
           <li><i class="fa-regular fa-user"></i></li>
         </ul>
@@ -60,7 +62,7 @@
       <div class="pc_menu">
         <!-- 검색창 -->
         <div>
-          <div>
+          <div @click="search_o">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
 
@@ -169,6 +171,41 @@
         </li>
       </div>
     </div>
+
+    <div id="search_hash">
+      <div class="flex_end">
+        <div id="search_close" class="close_btn" @click="search_x">취소</div>
+      </div>
+
+      <div class="search_window">
+        <input
+          type="text"
+          placeholder="검색어를 입력해 주세요"
+          id="tt"
+          v-model="searchText"
+          @keyup="enterkey()"
+        />
+        <button type="submit" @click="appendDiv()">확인</button>
+      </div>
+
+      <div class="keyword">
+        <h4>인기 검색어</h4>
+        <div>
+          <button class="hashtag" @click="statusChange('Air Force 1')">
+            Air Force 1
+          </button>
+          <button class="hashtag" @click="statusChange('Jordan')">
+            Jordan
+          </button>
+          <button class="hashtag" @click="statusChange('Air Max')">
+            Air Max
+          </button>
+          <button class="hashtag" @click="statusChange('Blazer')">
+            Blazer
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -177,6 +214,7 @@ export default {
   name: "AppHeader",
   data() {
     return {
+      searchText: "",
       isToggle: false,
       isAnima: false
     };
@@ -201,7 +239,18 @@ export default {
     },
     scrollx() {
       document.querySelector("body").classList.remove("act");
-    }
+    },
+    search_o() {
+      document.querySelector("#search_hash").classList.add("act");
+    },
+    search_x() {
+      document.querySelector("#search_hash").classList.remove("act");
+    },
+    statusChange(statusItem) {
+      this.searchText = statusItem;
+    },
+    enterkey() {},
+    appendDiv() {}
   }
 };
 </script>
